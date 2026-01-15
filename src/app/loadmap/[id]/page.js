@@ -10,7 +10,7 @@ export default async function Loadmaps({params}) {
   return (
     <>
       <h2>{loadmap.title}</h2>
-      <p>{loadmap.desc}</p>
+      <p style={{'white-space': 'pre-line'}}>{loadmap.desc}</p>
     </>
   );
 }
