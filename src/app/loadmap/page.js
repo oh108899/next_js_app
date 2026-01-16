@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default async function Loadmaps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loadmap/`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loadmap`)
   const loadmaps = await res.json()
   console.log(loadmaps)
   return (
