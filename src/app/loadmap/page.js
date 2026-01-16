@@ -6,7 +6,7 @@ export default async function Loadmaps() {
   console.log(loadmaps)
   return (
     <>
-      <h2>프론트엔드 개발자 로드맵</h2>
+      
       <ul>
         {
           loadmaps.map(item => {

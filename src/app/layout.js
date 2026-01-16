@@ -38,6 +38,7 @@ export default async function RootLayout({ children }) {
               <h1 className="logo">
                 <Link href="/" className="navbar-brand">WEB</Link>
               </h1>
+              <Link href='/loadmap'>Loadmap</Link>
               <ul className="nav">
                 {
                   topics.map(t => {
