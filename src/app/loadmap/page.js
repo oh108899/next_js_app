@@ -6,7 +6,7 @@ export default async function Loadmaps() {
   console.log(loadmaps)
   return (
     <>
-      
+      <h3>목록</h3>
       <ul>
         {
           loadmaps.map(item => {
