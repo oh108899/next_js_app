@@ -1,31 +1,30 @@
-'use client';
+"use client";
 import { useRouter } from 'next/navigation'
- 
 
 export default function Create() {
-  const router = useRouter()
+  const router = useRouter();
   const handleSubmit = (e)=>{
     e.preventDefault();
     const title = e.target.title.value;
     const message = e.target.message.value;
-    const option = {
-      method:'post',
+    const options = {
+      method:'POST',
       headers:{
-        'content-type':'application/json'
+        'Content-Type':'application/json'
       },
-      body:JSON.stringify({title,message}) // 입력값을 json 문자열 형태로
+      body:JSON.stringify({title,message}) //입력한 값을 json 문자열 형태로 변환
     }
-    fetch(`http://localhost:9999/topics`,option)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics/`, options)
     .then(res=>res.json())
-    .then(result=>{
-      router.push(`/read/${result.id}`)
-      router.refresh()
-    })
+    .then(result=>{      
+      router.push(`/read/${result.id}`);
+      router.refresh(); //페이지 이동후 새로고침
+    });
   }
 
   return (
     <>
-       <form onSubmit={handleSubmit}>
+     <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <input type="text" className="form-control" name="title" placeholder="title"/>
         </div>
@@ -34,7 +33,8 @@ export default function Create() {
         </div>
         <p>
           <button type="submit" className="btn btn-success">전송</button>
-        </p>      </form>
+        </p>
+      </form>   
     </>
   );
 }
